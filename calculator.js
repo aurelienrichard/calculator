@@ -66,7 +66,7 @@ class Calculator {
   format() {
     const strResult = this.currentOperand;
     const integerDigits = Number(strResult.split('.')[0]);
-    const decimalDigits = Number(strResult.split('.')[1]);
+    const decimalDigits = strResult.split('.')[1];
     let integerDisplay;
     if (Number.isNaN(integerDigits)) integerDisplay = '';
     else {
@@ -74,10 +74,10 @@ class Calculator {
         maximumFractionDigits: 0,
       });
     }
-    if (Number.isNaN(decimalDigits)) {
+    if (decimalDigits == null) {
       return integerDisplay;
     }
-    return `${integerDisplay}.${decimalDigits === 0 ? '' : decimalDigits}`;
+    return `${integerDisplay}.${decimalDigits}`;
   }
 
   display() {

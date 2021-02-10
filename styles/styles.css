@@ -1,0 +1,161 @@
+:root {
+  --radial-gradient-top: #161719;
+  --radial-gradient-bottom: #0c0c0e;
+  --calculator-background: #1d1f21cc;
+  --operand-background: #0c0c0c;
+  --operator-background: #161616;
+  --equals-background: #f95736;
+  --equals-hover: #ff6d50;
+  --equals-active: #ff7e65;
+  --calculator-hover: #373b41;
+  --button-active: #97979780;
+  --text-color: #fff;
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 500;
+  background: radial-gradient(
+      ellipse at top,
+      var(--radial-gradient-top),
+      var(--radial-gradient-bottom) 50% 100%
+    )
+    no-repeat fixed;
+  color: var(--text-color);
+  text-align: center;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
+}
+
+button:hover {
+  background: var(--calculator-hover);
+  cursor: pointer;
+  border: 1px solid #97979780;
+}
+
+button:focus {
+  outline: none;
+}
+
+.operand {
+  background: var(--operand-background);
+}
+
+.operator {
+  background: var(--operator-background);
+  font-weight: 300;
+}
+
+.calculator-body {
+  display: inline-grid;
+  grid-gap: 0.1rem;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 1.2rem;
+  background: var(--calculator-background);
+  padding: 1rem 0.1rem;
+  box-shadow: 0 0 0.1rem var(--radial-gradient-bottom);
+  max-width: 300px;
+}
+
+.calculator-body > div,
+.calculator-body > button {
+  padding: 0.6rem 1.47rem;
+}
+
+.equals {
+  background: var(--equals-background);
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.equals:hover {
+  background: var(--equals-hover);
+}
+
+button.active {
+  background: var(--button-active);
+  border: 1px solid var(--calculator-hover);
+}
+
+button:active,
+.equals:active {
+  background: var(--button-active);
+  border: 1px solid var(--calculator-hover);
+}
+
+.output {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+#equals:active,
+#equals.active {
+  background: var(--equals-active);
+}
+
+#current,
+#previous {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-align: right;
+  padding: 0.3rem 0;
+}
+
+#current > h1 {
+  font-size: 2.7rem;
+  line-height: 2.8rem;
+  margin: 0 0.5rem 1rem;
+  font-weight: 500;
+}
+
+#previous > h2 {
+  font-size: 1.3rem;
+  color: #979797;
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+#current > h1:empty::before {
+  content: '0';
+}
+
+#previous > h2:empty::before {
+  content: '\00a0';
+}
+
+/* Signature */
+
+#footer a {
+  font: 300 0.8rem 'Raleway', sans-serif;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.15rem;
+  transition: all 0.2s ease-in-out;
+}
+
+#footer a:hover {
+  transform: scale(1.2);
+  text-shadow: 0 5px 5px black;
+}
+
+#footer a .attribution {
+  transition: color 0.2s ease-in-out;
+}
+
+#footer a:hover .attribution {
+  color: #f95736;
+}
+
+.fa-github {
+  transform: scale(1.2);
+}
